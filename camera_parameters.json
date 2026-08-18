@@ -1,0 +1,76 @@
+{
+  "image_size": {
+    "width": 1920,
+    "height": 1080
+  },
+  "pattern_size": {
+    "columns": 9,
+    "rows": 6
+  },
+  "square_size_mm": 23.79,
+  "rms_reprojection_error_px": 0.4562895768762087,
+  "camera_matrix": [
+    [
+      1462.6411121181964,
+      0.0,
+      958.3543046210035
+    ],
+    [
+      0.0,
+      1460.9669309448627,
+      531.605475620634
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "distortion_coefficients": [
+    -0.017748983449213978,
+    0.04963109491390639,
+    -0.0017473185793978386,
+    -0.0008299351622381304,
+    -0.11051644892986497
+  ],
+  "used_images": [
+    "calibration_00.png",
+    "calibration_01.png",
+    "calibration_02.png",
+    "calibration_03.png",
+    "calibration_04.png",
+    "calibration_05.png",
+    "calibration_07.png",
+    "calibration_08.png",
+    "calibration_11.png",
+    "calibration_12.png",
+    "calibration_13.png",
+    "calibration_14.png",
+    "calibration_15.png",
+    "calibration_16.png",
+    "calibration_17.png"
+  ],
+  "excluded_images": [
+    "calibration_06.png",
+    "calibration_09.png",
+    "calibration_10.png",
+    "calibration_18.png"
+  ],
+  "per_image_reprojection_rmse_px": {
+    "calibration_00.png": 0.44624584913253784,
+    "calibration_01.png": 0.45298323035240173,
+    "calibration_02.png": 0.5172240734100342,
+    "calibration_03.png": 0.7121506929397583,
+    "calibration_04.png": 0.5003063678741455,
+    "calibration_05.png": 0.6936866044998169,
+    "calibration_07.png": 0.5227630734443665,
+    "calibration_08.png": 0.3859369158744812,
+    "calibration_11.png": 0.17674662172794342,
+    "calibration_12.png": 0.43224915862083435,
+    "calibration_13.png": 0.46050915122032166,
+    "calibration_14.png": 0.367632120847702,
+    "calibration_15.png": 0.27971139550209045,
+    "calibration_16.png": 0.2695550322532654,
+    "calibration_17.png": 0.2721090614795685
+  }
+}
