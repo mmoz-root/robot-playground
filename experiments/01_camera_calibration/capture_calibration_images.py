@@ -6,7 +6,8 @@ import cv2
 CAMERA_INDEX = 0
 WINDOW_NAME = "Calibration Capture"
 PATTERN_SIZE = (9, 6)
-IMAGE_DIRECTORY = Path("calibration_images")
+EXPERIMENT_DIRECTORY = Path(__file__).resolve().parent
+IMAGE_DIRECTORY = EXPERIMENT_DIRECTORY / "calibration_images"
 
 REFINEMENT_CRITERIA = (
     cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER,

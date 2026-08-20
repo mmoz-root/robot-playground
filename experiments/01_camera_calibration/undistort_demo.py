@@ -6,7 +6,8 @@ import numpy as np
 
 
 CAMERA_INDEX = 0
-PARAMETER_FILE = Path("camera_parameters.json")
+EXPERIMENT_DIRECTORY = Path(__file__).resolve().parent
+PARAMETER_FILE = EXPERIMENT_DIRECTORY / "camera_parameters.json"
 WINDOW_NAME = "Undistortion Demo"
 
 

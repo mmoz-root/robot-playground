@@ -8,7 +8,8 @@ import json
 
 PATTERN_SIZE = (9, 6)
 SQUARE_SIZE_MM = 23.79
-IMAGE_DIRECTORY = Path("calibration_images")
+EXPERIMENT_DIRECTORY = Path(__file__).resolve().parent
+IMAGE_DIRECTORY = EXPERIMENT_DIRECTORY / "calibration_images"
 
 REFINEMENT_CRITERIA = (
     cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER,
@@ -21,7 +22,7 @@ EXCLUDED_IMAGE_NAMES = {
     "calibration_10.png",
     "calibration_18.png",
 }
-PARAMETER_FILE = Path("camera_parameters.json")
+PARAMETER_FILE = EXPERIMENT_DIRECTORY / "camera_parameters.json"
 
 
 object_point_template = np.zeros(
