@@ -1,0 +1,105 @@
+<mujoco model="pan_tilt_tracker">
+    <compiler angle="radian"/>
+
+    <option
+        timestep="0.002"
+        gravity="0 0 0"
+    />
+
+    <visual>
+        <headlight
+            ambient="0.3 0.3 0.3"
+            diffuse="0.8 0.8 0.8"
+        />
+    </visual>
+
+    <worldbody>
+        <geom
+            name="floor"
+            type="plane"
+            size="3 3 0.1"
+            rgba="0.8 0.8 0.8 1"
+        />
+
+        <body
+            name="pan_body"
+            pos="0 0 1.2"
+        >
+            <joint
+                name="pan_joint"
+                type="hinge"
+                axis="0 0 1"
+                damping="0.05"
+                limited="true"
+                range="-1.57 1.57"
+            />
+
+            <geom
+                name="pan_mount"
+                type="cylinder"
+                size="0.08 0.08"
+                rgba="0.2 0.3 0.8 1"
+                contype="0"
+                conaffinity="0"
+            />
+
+            <body name="tilt_body">
+                <joint
+                    name="tilt_joint"
+                    type="hinge"
+                    axis="0 1 0"
+                    damping="0.05"
+                    limited="true"
+                    range="-1.05 1.05"
+                />
+
+                <geom
+                    name="camera_housing"
+                    type="box"
+                    pos="0.05 0 0"
+                    size="0.08 0.06 0.05"
+                    rgba="0.2 0.7 0.9 1"
+                    contype="0"
+                    conaffinity="0"
+                />
+
+                <camera
+                    name="tracking_camera"
+                    pos="0.14 0 0"
+                    xyaxes="0 -1 0 0 0 1"
+                    fovy="60"
+                />
+            </body>
+        </body>
+
+        <body
+            name="target"
+            pos="2 -0.6 1.6"
+        >
+            <geom
+                name="target_geom"
+                type="sphere"
+                size="0.12"
+                rgba="0 1 0 1"
+            />
+        </body>
+    </worldbody>
+
+    <actuator>
+        <motor
+            name="pan_motor"
+            joint="pan_joint"
+            gear="1"
+            ctrllimited="true"
+            ctrlrange="-1 1"
+        />
+
+        <motor
+            name="tilt_motor"
+            joint="tilt_joint"
+            gear="1"
+            ctrllimited="true"
+            ctrlrange="-1 1"
+        />
+    </actuator>
+</mujoco>
