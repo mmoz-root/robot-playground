@@ -1,0 +1,149 @@
+<mujoco model="vision_guided_arm">
+    <compiler angle="radian"/>
+
+    <option
+        timestep="0.002"
+        gravity="0 0 0"
+    />
+
+    <visual>
+        <headlight
+            ambient="0.3 0.3 0.3"
+            diffuse="0.8 0.8 0.8"
+        />
+
+        <global
+            offwidth="640"
+            offheight="480"
+        />
+    </visual>
+
+    <worldbody>
+        <geom
+            name="floor"
+            type="plane"
+            size="1 1 0.1"
+            rgba="0.8 0.8 0.8 1"
+        />
+
+        <camera
+            name="overhead_camera"
+            pos="0 0 0.5"
+            xyaxes="1 0 0 0 1 0"
+            fovy="60"
+        />
+
+        <body
+            name="link_1"
+            pos="0 0 0.04"
+        >
+            <joint
+                name="shoulder"
+                type="hinge"
+                axis="0 0 1"
+                damping="0.02"
+                limited="true"
+                range="-3.0 3.0"
+            />
+
+            <geom
+                name="link_1_geom"
+                type="capsule"
+                fromto="0 0 0 0.1 0 0"
+                size="0.008"
+                mass="0.1"
+                rgba="0.1 0.3 0.9 1"
+                contype="0"
+                conaffinity="0"
+            />
+
+            <body
+                name="link_2"
+                pos="0.1 0 0"
+            >
+                <joint
+                    name="elbow"
+                    type="hinge"
+                    axis="0 0 1"
+                    damping="0.02"
+                    limited="true"
+                    range="-3.0 3.0"
+                />
+
+                <geom
+                    name="link_2_geom"
+                    type="capsule"
+                    fromto="0 0 0 0.05 0 0"
+                    size="0.008"
+                    mass="0.05"
+                    rgba="0.9 0.5 0.1 1"
+                    contype="0"
+                    conaffinity="0"
+                />
+
+                <site
+                    name="end_effector"
+                    type="sphere"
+                    pos="0.05 0 0"
+                    size="0.012"
+                    rgba="1 0 0 1"
+                />
+            </body>
+        </body>
+
+        <body
+            name="target"
+            pos="0.10 0.05 0.04"
+            mocap="true"
+        >
+            <geom
+                name="target_cube"
+                type="box"
+                size="0.01 0.01 0.01"
+                rgba="0 1 0 1"
+                contype="0"
+                conaffinity="0"
+            />
+        </body>
+    </worldbody>
+
+    <actuator>
+        <motor
+            name="shoulder_motor"
+            joint="shoulder"
+            gear="0.05"
+            ctrllimited="true"
+            ctrlrange="-1 1"
+        />
+
+        <motor
+            name="elbow_motor"
+            joint="elbow"
+            gear="0.05"
+            ctrllimited="true"
+            ctrlrange="-1 1"
+        />
+    </actuator>
+
+    <sensor>
+        <jointpos
+            name="shoulder_position"
+            joint="shoulder"
+        />
+
+        <jointpos
+            name="elbow_position"
+            joint="elbow"
+        />
+
+        <jointvel
+            name="shoulder_velocity"
+            joint="shoulder"
+        />
+
+        <jointvel
+            name="elbow_velocity"
+            joint="elbow"
+        />
+    </sensor>
+</mujoco>
